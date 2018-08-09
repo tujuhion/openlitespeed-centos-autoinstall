@@ -122,5 +122,8 @@ cat << EOT > /root/.MariaDB
 $ROOTSQLPWD
 EOT
 
+# Create PHP symlink
+ln -s /usr/local/lsws/lsphp72/bin/lsphp /usr/bin/php
+
 systemctl enable proftpd
 systemctl enable mariadb
