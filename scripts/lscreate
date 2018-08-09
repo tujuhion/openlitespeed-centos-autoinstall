@@ -4,7 +4,7 @@ echo "Domain name (Without www):"
 read DOMAIN
 echo FTP Username :
 read USERNAME
-echo Password :
+echo FTP Password :
 read PASSWORD
 
 HOMEDIR="/home/$DOMAIN"
@@ -19,6 +19,14 @@ mkdir $SERVERROOT/conf/cert/$DOMAIN
 
 # Create file
 touch $HOMEDIR/html/.htaccess
+touch /$HOMEDIR/logs/{error.log,access.log}
+cat << EOT > $HOMEDIR/html/index.php
+<?php
+echo "Its Works!";
+?>
+EOT
+
+# Modify LS config file
 cp $SERVERROOT/conf/templates/incl.conf $SERVERROOT/conf/templates/$DOMAIN.conf
 cp $SERVERROOT/conf/templates/vhconf.conf $SERVERROOT/conf/vhosts/$DOMAIN/vhconf.conf
 sed -i "s/##DOMAIN##/$DOMAIN/g" $SERVERROOT/conf/templates/$DOMAIN.conf
@@ -26,11 +34,6 @@ sed -i "s/##DOMAIN##/$DOMAIN/g" $SERVERROOT/conf/vhosts/$DOMAIN/vhconf.conf
 sed -i "/defdomain[[:space:]][*]/a \  map                     $DOMAIN $DOMAIN" $SERVERROOT/conf/httpd_config.conf
 sed -i "s/virtualhost[[:space:]]defdomain[[:space:]]{/cat \/usr\/local\/lsws\/conf\/templates\/$DOMAIN.conf/e" $SERVERROOT/conf/httpd_config.conf
 rm -f $DOMAINCONF
-cat << EOT > $HOMEDIR/html/index.php
-<?php
-echo "Its Works!";
-?>
-EOT
 
 # Generate Cert
 openssl genrsa -out $SERVERROOT/conf/cert/$DOMAIN/$DOMAIN.key 2048
