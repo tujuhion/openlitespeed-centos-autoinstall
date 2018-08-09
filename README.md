@@ -1,5 +1,6 @@
 # Openlitespeed Auto install in Centos7
 
+Tested and work with 2GB RAM VM in [Digitalocean](https://m.do.co/c/c0809edd09b1) and [Vultr](https://www.vultr.com/?ref=7083611)
 ## Usage
 Copy and Paste this line in your fresh install Centos7
 ```
@@ -40,4 +41,4 @@ lsws start
 ```
 and fill your domain name, ftp username and ftp password.
 
-
+Specialy Thank to [Hosting Indonesia](https://www.indowebsite.id) for support and donation.
