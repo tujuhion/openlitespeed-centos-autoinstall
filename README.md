@@ -15,8 +15,9 @@ This scripts will install
 - Simple Scripts to create vhost
 
 ### Access Openlitespeed web server
+```
 https://yourhostorip:7080
-
+```
 before access, create your username and password with this command
 ```
 /usr/local/lsws/admin/misc/admpass.sh
