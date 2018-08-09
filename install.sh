@@ -19,7 +19,7 @@ GITRAW=https://raw.githubusercontent.com/tujuhion/openlitespeed-centos-autoinsta
 LSWSDIR=/usr/local/lsws
 
 # Update
-wget -O /etc/yum.repos.d/MariaDB.repo $GITRAW/master/repo/MariaDB.repo
+wget -O /etc/yum.repos.d/MariaDB.repo $GITRAW/repo/MariaDB.repo
 yum -y install epel-release wget cerbot openssl
 yum -y update
 rpm -ivh http://rpms.litespeedtech.com/centos/litespeed-repo-1.1-1.el7.noarch.rpm
