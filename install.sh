@@ -79,7 +79,7 @@ mkdir $LSWSDIR/conf/vhosts/pma
 mkdir $LSWSDIR/conf/cert/pma
 touch $LSWSDIR/pma/logs/error.log
 touch $LSWSDIR/pma/logs/access.log
-wget -O LSWSDIR/conf/vhosts/pma/vhconf.conf $GITRAW/conf/pma_vhconf.conf
+wget -O $LSWSDIR/conf/vhosts/pma/vhconf.conf $GITRAW/conf/pma_vhconf.conf
 wget --no-check-certificate -O $LSWSDIR/pma/html/pma.tar.gz https://files.phpmyadmin.net/phpMyAdmin/4.8.2/phpMyAdmin-4.8.2-english.tar.gz
 cd $LSWSDIR/pma/html/
 tar -xzvf pma.tar.gz
