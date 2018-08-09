@@ -48,7 +48,7 @@ useradd $USERNAME -d /home/$DOMAIN -p $(echo $PASSWORD | openssl passwd -1 -stdi
 chown -R $USERNAME:$USERNAME $HOMEDIR/html/
 chown -R lsadm:lsadm $SERVERROOT/conf/cert/
 chown -R lsadm:lsadm $SERVERROOT/conf/vhosts/
-chown -R lsadm:lsadm $SERVERROOT/conf/inclconf/
+chown -R lsadm:lsadm $SERVERROOT/conf/templates/
 
 # Reload
 /usr/local/lsws/bin/lswsctrl reload
