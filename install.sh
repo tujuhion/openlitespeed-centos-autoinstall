@@ -40,6 +40,7 @@ yum -y install lsphp72 lsphp72-common lsphp72-mysqlnd lsphp72-process lsphp72-gd
 lsphp72-mcrypt lsphp72-opcache lsphp72-bcmath lsphp72-pdo lsphp72-xml lsphp72-json lsphp72-zip lsphp72-xmlrpc lsphp72-pecl-mcrypt
 
 #Setting Up
+touch $LSWSDIR/domain
 mv -f $LSWSDIR/conf/vhosts/Example/ $LSWSDIR/conf/vhosts/defdomain/
 rm -f $LSWSDIR/conf/vhosts/defdomain/vhconf.conf
 rm -f $LSWSDIR/conf/httpd_config.conf

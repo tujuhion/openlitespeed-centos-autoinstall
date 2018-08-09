@@ -52,7 +52,7 @@ chown -R lsadm:lsadm $SERVERROOT/conf/templates/
 
 # Reload
 /usr/local/lsws/bin/lswsctrl reload
-
+echo -e $DOMAIN:$HOMEDIR >> $SERVERROOT/domain
 echo =================================================
 echo Done!
 echo Your vhost is ready
