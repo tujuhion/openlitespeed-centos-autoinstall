@@ -106,6 +106,7 @@ firewall-cmd --zone=public --permanent --add-port=8090/tcp
 firewall-cmd --reload
 
 # Generate SSL for Webadmin
+mkdir $LSWSDIR/conf/cert/admin
 openssl genrsa -out $LSWSDIR/conf/cert/admin/admin.key 2048
 openssl rsa -in $LSWSDIR/conf/cert/admin/admin.key -out $LSWSDIR/conf/cert/admin/admin.key
 openssl req -sha256 -new -key $LSWSDIR/conf/cert/admin/admin.key -out $LSWSDIR/conf/cert/admin/admin.csr -subj "/CN=localhost"
