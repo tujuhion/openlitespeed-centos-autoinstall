@@ -16,7 +16,7 @@ PMABLOWFISH=$TEMPRANDSTR
 
 # Define short code
 GITRAW=https://raw.githubusercontent.com/tujuhion/openlitespeed-centos-autoinstall/master
-LSWSDIR=$LSWSDIR
+LSWSDIR=/usr/local/lsws
 
 # Update
 wget -O /etc/yum.repos.d/MariaDB.repo $GITRAW/master/repo/MariaDB.repo
