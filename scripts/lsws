@@ -1,3 +1,8 @@
 #!/bin/bash
 
-/usr/local/lsws/bin/lswsctrl $1
+if [ $1 == 'admin' ]
+then
+    /usr/local/lsws/admin/misc/admpass.sh
+else
+    /usr/local/lsws/bin/lswsctrl $1
+fi
