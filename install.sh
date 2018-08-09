@@ -8,7 +8,7 @@ function getRandPassword
     TEMPRANDSTR=`cat /tmp/randpasswdtmpfile`
     rm /tmp/randpasswdtmpfile
     local DATE=`date`
-    TEMPRANDSTR=`echo "$TEMPRANDSTR$RANDOM$DATE" |  md5sum | base64 | head -c 16`
+    TEMPRANDSTR=`echo "$TEMPRANDSTR$RANDOM$DATE" |  md5sum | base64 | head -c 32`
 }
 getRandPassword
 ROOTSQLPWD=$TEMPRANDSTR
