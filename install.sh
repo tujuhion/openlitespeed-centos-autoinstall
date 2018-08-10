@@ -116,7 +116,10 @@ openssl req -sha256 -new -key $LSWSDIR/conf/cert/admin/admin.key -out $LSWSDIR/c
 openssl x509 -req -sha256 -days 365 -in $LSWSDIR/conf/cert/admin/admin.csr -signkey $LSWSDIR/conf/cert/admin/admin.key -out $LSWSDIR/conf/cert/admin/admin.crt
 
 #Setting MySQL
-systemctl start mariadb && systemctl start proftpd && $LSWSDIR/bin/lswsctrl start && 
+systemctl start mariadb && systemctl start proftpd && $LSWSDIR/bin/lswsctrl start
+mysql -uroot -v -e "DELETE FROM mysql.user WHERE User='root' AND Host NOT IN ('localhost', '127.0.0.1', '::1');"
+mysql -uroot -v -e "DROP DATABASE test;"
+mysql -uroot -v -e "DELETE FROM mysql.user WHERE User='';"
 mysql -uroot -v -e "use mysql;update user set Password=PASSWORD('$ROOTSQLPWD') where user='root'; flush privileges;"
 
 # Save Password root MariaDB
