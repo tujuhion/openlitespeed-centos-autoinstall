@@ -1,0 +1,17 @@
+#!/bin/bash
+
+echo "====================================================================================="
+echo "Please note, this scripts only work if you not change default root mysql password."
+echo "If you change MySQL root password, make sure it stored in /root/.MariaDB"
+echo "====================================================================================="
+
+echo "Database Name :"
+read DBNAME
+echo "Database Username :"
+read DBUSER
+echo "Database Password :"
+read DBPASS
+
+MYSQLROOTPASS=`/usr/bin/cat /root/.MariaDB`
+
+mysql -u root -p$MYSQLROOTPASS -v -e "create database $DBNAME;grant all on $DBNAME.* to $DBUSER@localhost identified by '$DBPASS'"
