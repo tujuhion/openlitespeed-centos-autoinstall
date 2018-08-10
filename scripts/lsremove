@@ -1,0 +1,16 @@
+#!/bin/bash
+
+echo "Domain name (Without www):"
+read DOMAIN
+
+HOMEDIR="/home/$DOMAIN"
+VHOSTDIR="/usr/local/lsws/conf/vhosts/$DOMAIN"
+CERTDIR="/usr/local/lsws/conf/cert/$DOMAIN"
+
+rm -rf $HOMEDIR && rm -rf $VHOSTDIR && rm -rf $CERTDIR
+
+echo "=========================================================="
+echo "Removing $HOMEDIR"
+echo "Removing $VHOSTDIR"
+echo "Removing $CERTDIR"
+echo "For Complete process, please enter your litespeed admin, and delete your vhost."

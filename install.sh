@@ -55,6 +55,7 @@ chown lsadm:lsadm $LSWSDIR/admin/conf/admin_config.conf
 # Copy Script
 mkdir /scripts
 wget -O /scripts/lscreate $GITRAW/scripts/lscreate
+wget -O /scripts/lsremove $GITRAW/scripts/lsremove
 wget -O /scripts/certbot $GITRAW/scripts/certbot
 wget -O /usr/bin/lsws $GITRAW/scripts/lsws
 chmod +x /usr/bin/lsws
