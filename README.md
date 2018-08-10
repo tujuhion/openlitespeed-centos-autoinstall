@@ -23,6 +23,10 @@ before access, create your username and password with this command
 ```
 /usr/local/lsws/admin/misc/admpass.sh
 ```
+or
+```
+lsws admin
+```
 
 ### Access PHPMyadmin
 ```
@@ -35,10 +39,17 @@ This only symlink to /usr/local/lsws/bin/lswsctrl
 ```
 lsws start
 ```
+type 'lsws help' to list command
 #### To create Vhosts
 ```
 /scripts/lscreate
 ```
 and fill your domain name, ftp username and ftp password.
+#### To Install Let's Encrypt Certificate
+```
+/scripts/certbot
+```
+Enter your domain, and certificate is auto installed to your domain. Please make sure vhost create by /scripts/lscreate
+
 
 Specialy Thank to [Hosting Indonesia](https://www.indowebsite.id) for support and donation.
