@@ -1,0 +1,27 @@
+#!/bin/bash
+
+echo "Make sure you create vhost with /scripts/lscreate."
+echo "Make your domain is correct pointing to this IP server."
+echo "Domain name (Without www):"
+read DOMAIN
+
+HOMEDIR="/home/$DOMAIN/html"
+/usr/bin/certbot certonly --webroot -w $HOMEDIR -d $DOMAIN
+
+if [ ! -f /etc/letsencrypt/live/$DOMAIN/cert.pem ]
+then
+    echo Certificate file not found, aborting installation.
+else
+# Creating symlink Certificate File
+ln -s /etc/letsencrypt/live/$DOMAIN/privkey.pem /usr/local/lsws/conf/cert/$DOMAIN/privkey.pem
+ln -s /etc/letsencrypt/live/$DOMAIN/fullchain.pem /usr/local/lsws/conf/cert/$DOMAIN/fullchain.pem
+
+# Change vhost
+sed -i "s/$DOMAIN.key/privkey.pem/g" /usr/local/lsws/conf/vhosts/$DOMAIN/vhconf.conf
+sed -i "s/$DOMAIN.crt/fullchain.pem/g" /usr/local/lsws/conf/vhosts/$DOMAIN/vhconf.conf
+sed -i "/fullchain.pem/a \  certChain               1" /usr/local/lsws/conf/vhosts/$DOMAIN/vhconf.conf
+/usr/local/lsws/bin/lswsctrl reload
+echo "================================ SUCESS ================================"
+echo "Let's Encrypt free SSL/TLS Certificates successfully Installed to $DOMAIN"
+echo "========================================================================"
+fi

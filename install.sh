@@ -20,9 +20,9 @@ LSWSDIR=/usr/local/lsws
 
 # Update
 wget -O /etc/yum.repos.d/MariaDB.repo $GITRAW/repo/MariaDB.repo
-yum -y install epel-release wget cerbot openssl
-yum -y update
 rpm -ivh http://rpms.litespeedtech.com/centos/litespeed-repo-1.1-1.el7.noarch.rpm
+yum -y install epel-release wget certbot openssl
+yum -y update
 
 # Install Proftpd
 yum -y install proftpd
@@ -55,6 +55,7 @@ chown lsadm:lsadm $LSWSDIR/admin/conf/admin_config.conf
 # Copy Script
 mkdir /scripts
 wget -O /scripts/lscreate $GITRAW/scripts/lscreate
+wget -O /scripts/certbot $GITRAW/scripts/certbot
 wget -O /usr/bin/lsws $GITRAW/scripts/lsws
 chmod +x /usr/bin/lsws
 chmod +x /scripts/*
