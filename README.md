@@ -9,6 +9,7 @@ bash <( curl -k https://raw.githubusercontent.com/tujuhion/openlitespeed-centos-
 
 This scripts will install 
 - Openlitespeed web server
+- ProFTPD
 - MariaDB 10.2
 - PHP 7.2
 - PHPMyAdmin 4.8.2
