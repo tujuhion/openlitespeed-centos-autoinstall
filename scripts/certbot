@@ -6,7 +6,7 @@ echo "Domain name (Without www):"
 read DOMAIN
 
 HOMEDIR="/home/$DOMAIN/html"
-/usr/bin/certbot certonly --webroot -w $HOMEDIR -d $DOMAIN
+/usr/bin/certbot certonly --webroot -w $HOMEDIR -d $DOMAIN -d www.$DOMAIN
 
 if [ ! -f /etc/letsencrypt/live/$DOMAIN/cert.pem ]
 then
