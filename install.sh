@@ -19,9 +19,10 @@ GITRAW=https://raw.githubusercontent.com/tujuhion/openlitespeed-centos-autoinsta
 LSWSDIR=/usr/local/lsws
 
 # Update
+yum -y install epel-release
+yum -y install wget certbot openssl
 wget -O /etc/yum.repos.d/MariaDB.repo $GITRAW/repo/MariaDB.repo
 rpm -ivh http://rpms.litespeedtech.com/centos/litespeed-repo-1.1-1.el7.noarch.rpm
-yum -y install epel-release wget certbot openssl
 yum -y update
 
 # Install Proftpd
