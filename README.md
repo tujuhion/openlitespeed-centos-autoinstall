@@ -52,5 +52,6 @@ and fill your domain name, ftp username and ftp password.
 ```
 Enter your domain, and certificate is auto installed to your domain. Please make sure vhost create by /scripts/lscreate
 
+Please refer this [link](https://www.indowebsite.co.id/kb/install-webserver-openlitespeed-pada-centos/) for installation in Bahasa Indonesia
 
-Specialy Thank to [Hosting Indonesia](https://www.indowebsite.id) for support and donation.
+Specialy Thank to [Web Hosting](https://www.indowebsite.co.id) Indonesia for support and donation.
