@@ -125,8 +125,18 @@ mysql -uroot -v -e "DELETE FROM mysql.user WHERE User='';"
 mysql -uroot -v -e "use mysql;update user set Password=PASSWORD('$ROOTSQLPWD') where user='root'; flush privileges;"
 
 # Save Password root MariaDB
-cat << EOT > /root/.MariaDB
-$ROOTSQLPWD
+cat << EOT > /root/.my.cnf
+[mysql]
+user=root
+password=$ROOTSQLPWD
+
+[mysqldump]
+user=root
+password=$ROOTSQLPWD
+
+[mysqlshow]
+user=root
+password=$ROOTSQLPWD
 EOT
 
 # Create PHP symlink
